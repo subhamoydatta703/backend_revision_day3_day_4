@@ -20,6 +20,14 @@ app.get('/random',(req, res)=>{
     res.render("random.ejs", {val})
 })
 
+app.get('/ig/:username', (req, res)=>{
+
+    let { username }= req.params;
+
+    res.render("insta.ejs", { username })
+
+})
+
 
 app.listen(port, ()=>{
     console.log(`Listening at port ${port}`);
