@@ -14,6 +14,13 @@ app.get('/',(req, res)=>{
     res.render("home.ejs")
 })
 
+app.get('/random',(req, res)=>{
+    // res.send("<h1>Hello</h1>");
+    let val = Math.floor(Math.random()*10)
+    res.render("random.ejs", {val})
+})
+
+
 app.listen(port, ()=>{
     console.log(`Listening at port ${port}`);
     
