@@ -27,6 +27,18 @@ app.get("/ig/:username", (req, res) => {
 
   res.render("insta.ejs", { username, fol });
 });
+app.get("/:animalName", (req, res) => {
+    let { animalName } = req.params;
+    const animal = require("./data.json")
+let data = animal[animalName]
+console.log(data);
+if(data){
+  res.render("animal.ejs", { data });
+}else{
+    res.render("error.ejs")
+}
+
+});
 
 app.listen(port, () => {
   console.log(`Listening at port ${port}`);
